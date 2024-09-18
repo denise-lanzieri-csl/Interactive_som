@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,49 +34,5 @@
 
     </script>
 </body>
-</html> -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive U-Matrix Plot</title>
-    <style>
-        #plot {
-            width: 800px;
-            height: 800px;
-            display: block;
-            margin: 0 auto;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <h1>Interactive U-Matrix Plot</h1>
-    <p>Move your mouse over the plot to dynamically update it.</p>
-    <img id="plot" src="/click/5/5" alt="Plot will load here" onmousemove="debouncedHandleMouseMove(event)">
-    <script>
-        let debounceTimeout;
-
-        function debouncedHandleMouseMove(event) {
-            clearTimeout(debounceTimeout);
-            debounceTimeout = setTimeout(() => {
-                handleMouseMove(event);
-            }, 1); // delay (10ms) 
-        }
-
-        function handleMouseMove(event) {
-            const plot = document.getElementById("plot");
-            const rect = plot.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;  
-            const m = Math.floor((x / rect.width) * 50) + 1;  // Assuming 50x50 grid
-            const n = Math.floor(((rect.height - y) / rect.height) * 50) + 1;  
-
-            const newPlotUrl = `/click/${m}/${n}`;
-            plot.src = newPlotUrl;  
-        }
-    </script>
-</body>
 </html>
+
