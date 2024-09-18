@@ -15,24 +15,9 @@
     </style>
 </head>
 <body>
-    <h1>Interactive U-Matrix Plot</h1>
-    <p>Click on the plot to dynamically update the plot.</p>
-    <img id="plot" src="/click/5/5" alt="Plot will load here" onclick="handleClick(event)">
-    <script>
-        function handleClick(event) {
-            // Calculate the cell coordinates based on where the user clicked on the plot
-            const plot = document.getElementById("plot");
-            const rect = plot.getBoundingClientRect();
-            const x = event.clientX - rect.left;  // X position within the plot
-            const y = event.clientY - rect.top;   // Y position within the plot
-            const m = Math.floor((x / rect.width) * 50)+1;  // Assuming 50x50 grid
-            const n = Math.floor(((rect.height - y) / rect.height) * 50)+1;  // Flip the Y index calculation
-            // Fetch the new plot from the server based on the clicked cell (m, n)
-            const newPlotUrl = `/click/${m}/${n}`;
-            plot.src = newPlotUrl;  // Update the plot image with the new plot
-        }
+    <h1>Interactive Github</h1>
+   
 
-    </script>
 </body>
 </html>
 
